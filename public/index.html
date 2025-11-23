@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="../style/style.css" />
 
     <!-- FAVICON (adicione seu favicon) -->
-    <!-- <link rel="icon" type="image/png" href="../imagens/favicon.png"> -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
   </head>
   <body>
     <!-- HEADER / NAVEGAÇÃO PRINCIPAL -->
@@ -40,7 +40,7 @@
         aria-label="Navegação principal"
       >
         <div class="container-fluid">
-          <!-- LOGO -->
+          <!-- LOGO DUDU -->
           <a
             href="#"
             class="navbar-brand mb-0 h1 logo"
@@ -48,6 +48,7 @@
           >
             Dudu <span>Bebidas</span>
           </a>
+          <!-- LOGO LOGIN-->
           <a href="#">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -62,6 +63,7 @@
               />
             </svg>
           </a>
+          <!-- LOGO CARRINHO DE COMPRAS -->
           <a href="#"><span class="bi bi-cart text-white fs-2"></span></a>
           <!-- BOTÃO DO MENU MOBILE -->
           <button
@@ -76,13 +78,12 @@
           </button>
         </div>
       </nav>
-
       <!-- BARRA DE PESQUISA -->
-      <div class="search-container px-3 py-2">
+      <div class="search-container bg-black px-3 py-2">
         <form
-          class="search-box d-flex align-items-center"
+          class="search-box d-flex align-items-center bg-white rounded rounded-pill border border-3 border-warning"
           role="search"
-          onsubmit="event.preventDefault(); buscarProduto();"
+          aria-label="Formulário de busca de produtos"
         >
           <label for="searchInput" class="visually-hidden"
             >Buscar bebidas</label
@@ -152,6 +153,19 @@
         </div>
       </nav>
     </aside>
+    <!-- BANNER DE PROMOÇÃO -->
+    <a href="#" class="text-decoration-none">
+      <header class="container-fluid header-promoção m-0 p-2 bg-warning">
+        <h4 class="text-danger text-center fw-bold text-uppercase">
+          🔥Promoções imperdiveis🔥
+        </h4>
+        <p class="text-center text-black pt-3 fw-light">
+          <span class="text-danger fw-bold fs-5">Promoções relampago:</span> com
+          produtos com até <span class="text-danger fw-bold">50%off</span>.
+          <span class="text-danger fw-bold">Clique aqui</span> garanta ja o seu!
+        </p>
+      </header>
+    </a>
 
     <!-- CONTEÚDO PRINCIPAL -->
     <main>
@@ -162,72 +176,19 @@
         aria-labelledby="heroTitle"
       >
         <div class="container">
-          <h1 id="heroTitle" class="fw-bold text-white display-5">
+          <h1 id="heroTitle" class="fw-bold text-white fs-1">
             As Melhores Bebidas
           </h1>
-          <p class="text-light fs-5">Entrega rápida e preços imbatíveis.</p>
-          <a href="#produtos" class="btn btn-primary-custom mt-2">
+          <p class="text-light fs-5 fst-italic">
+            Bebida gelada na sua porta, rápido e com preço baixo. Delivery
+            seguro e cheio de ofertas. É pedir e aproveitar!
+          </p>
+          <a
+            href="#produtos"
+            class="btn btn-primary-custom text-black fw-bold mt-2"
+          >
             <i class="bi bi-cart-plus me-2"></i>Comprar Agora
           </a>
-        </div>
-      </section>
-
-      <!-- SEÇÃO DE PROMOÇÕES -->
-      <section class="relampago-items container py-4">
-        <div class="d-flex justify-content-between align-items-center mb-2">
-          <h2 class="relamp-title">⚡ Promoções Relâmpago</h2>
-        </div>
-
-        <div class="relamp-scroll">
-          <!-- ITEM 1 -->
-          <div class="relamp-card">
-            <span class="relamp-badge">-35%</span>
-            <img src="../imagens/whisky-dudu.jpg" alt="Heineken" />
-            <h4>Heineken 600ml</h4>
-            <p class="old-price">R$ 12,90</p>
-            <p class="new-price">R$ 8,40</p>
-            <button class="btn-relamp-buy">Aproveitar</button>
-          </div>
-
-          <!-- ITEM 2 -->
-          <div class="relamp-card">
-            <span class="relamp-badge">-22%</span>
-            <img src="../imagens/cerveja-dudu.jpg" alt="Red Bull" />
-            <h4>Red Bull 250ml</h4>
-            <p class="old-price">R$ 12,00</p>
-            <p class="new-price">R$ 9,40</p>
-            <button class="btn-relamp-buy">Aproveitar</button>
-          </div>
-
-          <!-- ITEM 3 -->
-          <div class="relamp-card">
-            <span class="relamp-badge">-40%</span>
-            <img src="../imagens/whisky-dudu.jpg" alt="Coca Cola" />
-            <h4>Coca-Cola 2L</h4>
-            <p class="old-price">R$ 11,99</p>
-            <p class="new-price">R$ 7,10</p>
-            <button class="btn-relamp-buy">Aproveitar</button>
-          </div>
-
-          <!-- ITEM 4 -->
-          <div class="relamp-card">
-            <span class="relamp-badge">-18%</span>
-            <img src="../imagens/whisky-dudu.jpg" alt="Jack Daniels 1L" />
-            <h4>Jack Daniel's 1L</h4>
-            <p class="old-price">R$ 149,90</p>
-            <p class="new-price">R$ 122,90</p>
-            <button class="btn-relamp-buy">Aproveitar</button>
-          </div>
-
-          <!-- ITEM 5 -->
-          <div class="relamp-card">
-            <span class="relamp-badge">-28%</span>
-            <img src="../imagens/whisky-dudu.jpg" alt="Monster" />
-            <h4>Monster 473ml</h4>
-            <p class="old-price">R$ 12,50</p>
-            <p class="new-price">R$ 8,99</p>
-            <button class="btn-relamp-buy">Aproveitar</button>
-          </div>
         </div>
       </section>
 
@@ -238,8 +199,15 @@
         aria-labelledby="produtosTitle"
       >
         <!-- CABEÇALHO DA SEÇÃO -->
-        <div class="section-header">
-          <h2 id="produtosTitle" class="section-title">Nossos Produtos</h2>
+        <div
+          class="section-header align-items-center mb-4 d-flex justify-content-between"
+        >
+          <h2
+            id="produtosTitle"
+            class="section-title text-black fw-bold fs-3 mb-3 px-2"
+          >
+            Nossos Produtos
+          </h2>
           <span class="text-muted" style="font-size: 14px" aria-live="polite">
             <span id="totalProdutos">0</span> produtos
           </span>
@@ -247,7 +215,7 @@
 
         <!-- FILTROS DE CATEGORIA -->
         <div
-          class="filter-tabs"
+          class="filter-tabs d-flex pb-2 mb-2"
           role="tablist"
           aria-label="Filtros de categoria"
         >
