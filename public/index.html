@@ -2,8 +2,18 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Dudu Bebidas - Mobile First</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Dudu Bebidas - As melhores bebidas com entrega rápida e preços imbatíveis. Cervejas, vinhos, destilados e muito mais!"
+    />
+    <meta
+      name="keywords"
+      content="bebidas, cerveja, vinho, destilados, entrega rápida, delivery"
+    />
+    <meta name="theme-color" content="#FFD700" />
+
+    <title>Dudu Bebidas - As Melhores Bebidas com Entrega Rápida</title>
 
     <!-- BOOTSTRAP 5 -->
     <link
@@ -15,224 +25,391 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
     />
 
+    <!-- CSS CUSTOMIZADO -->
     <link rel="stylesheet" href="../style/style.css" />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      defer
-    ></script>
+
+    <!-- FAVICON (adicione seu favicon) -->
+    <!-- <link rel="icon" type="image/png" href="../imagens/favicon.png"> -->
   </head>
   <body>
-    <!-- HEADER -->
-    <nav class="navbar navbar-dark bg-black px-3 py-2">
-      <span class="navbar-brand mb-0 h1 logo"> Dudu <span>Bebidas</span></span> <img src="#" alt="">
-
-      <button
-        class="navbar-toggler border-0 shadow-none"
-        type="button"
-        data-bs-toggle="offcanvas"
-        data-bs-target="#menu"
+    <!-- HEADER / NAVEGAÇÃO PRINCIPAL -->
+    <header>
+      <nav
+        class="navbar navbar-dark bg-black px-3 py-2 sticky-top"
+        role="navigation"
+        aria-label="Navegação principal"
       >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    </nav>
+        <div class="container-fluid">
+          <!-- LOGO -->
+          <a
+            href="#"
+            class="navbar-brand mb-0 h1 logo"
+            aria-label="Dudu Bebidas - Página inicial"
+          >
+            Dudu <span>Bebidas</span>
+          </a>
+          <a href="#">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="30"
+              height="30"
+              fill="currentColor"
+              class="bi bi-person text-warning fs-1"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"
+              />
+            </svg>
+          </a>
+          <a href="#"><span class="bi bi-cart text-white fs-2"></span></a>
+          <!-- BOTÃO DO MENU MOBILE -->
+          <button
+            class="navbar-toggler border-0 shadow-none"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#menu"
+            aria-controls="menu"
+            aria-label="Abrir menu de navegação"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </nav>
 
-    <!-- BARRA DE PESQUISA - MOBILE FIRST -->
-    <div class="search-container px-3 py-2">
-      <div class="search-box d-flex align-items-center">
-        <i class="bi bi-search search-icon"></i>
-        <input
-          type="text"
-          class="form-control search-input"
-          placeholder="Buscar bebidas..."
-        />
+      <!-- BARRA DE PESQUISA -->
+      <div class="search-container px-3 py-2">
+        <form
+          class="search-box d-flex align-items-center"
+          role="search"
+          onsubmit="event.preventDefault(); buscarProduto();"
+        >
+          <label for="searchInput" class="visually-hidden"
+            >Buscar bebidas</label
+          >
+          <i class="bi bi-search search-icon" aria-hidden="true"></i>
+          <input
+            type="search"
+            id="searchInput"
+            class="form-control search-input"
+            placeholder="Buscar bebidas..."
+            aria-label="Campo de busca de produtos"
+          />
+        </form>
       </div>
-    </div>
+    </header>
 
-    <!-- MENU MOBILE -->
-    <div class="offcanvas offcanvas-end bg-black text-white" id="menu">
+    <!-- MENU MOBILE (OFFCANVAS) -->
+    <aside
+      class="offcanvas offcanvas-end bg-black text-white"
+      id="menu"
+      tabindex="-1"
+      aria-labelledby="menuTitle"
+    >
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title">Menu</h5>
+        <h5 class="offcanvas-title" id="menuTitle">Menu</h5>
         <button
+          type="button"
           class="btn-close btn-close-white"
           data-bs-dismiss="offcanvas"
+          aria-label="Fechar menu"
         ></button>
       </div>
 
-      <div class="offcanvas-body">
-        <a href="#" class="nav-link text-white my-2">Início</a>
-        <a href="#" class="nav-link text-white my-2">Promoções</a>
-        <a href="#" class="nav-link text-white my-2">Categorias</a>
-        <a href="#" class="nav-link text-white my-2">Contato</a>
-      </div>
-    </div>
+      <nav class="offcanvas-body" role="navigation" aria-label="Menu lateral">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a href="#hero" class="nav-link text-white my-2">
+              <i class="bi bi-house-door me-2"></i>Início
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#produtos" class="nav-link text-white my-2">
+              <i class="bi bi-tag me-2"></i>Promoções
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#produtos" class="nav-link text-white my-2">
+              <i class="bi bi-grid me-2"></i>Categorias
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#contato" class="nav-link text-white my-2">
+              <i class="bi bi-envelope me-2"></i>Contato
+            </a>
+          </li>
+        </ul>
 
-    <!-- HERO -->
-    <section class="hero d-flex align-items-center px-3">
-      <div>
-        <h1 class="fw-bold text-white">As Melhores Bebidas</h1>
-        <p class="text-light">Entrega rápida e preços imbatíveis.</p>
-        <button class="btn btn-primary-custom mt-2">Comprar Agora</button>
-      </div>
-    </section>
+        <!-- INFORMAÇÕES DE CONTATO NO MENU -->
+        <div class="mt-4 pt-4 border-top border-secondary">
+          <h6 class="text-white mb-3">Entre em Contato</h6>
+          <p class="text-light small mb-2">
+            <i class="bi bi-whatsapp me-2"></i>(11) 99999-9999
+          </p>
+          <p class="text-light small mb-2">
+            <i class="bi bi-envelope me-2"></i>contato@dudububebidas.com.br
+          </p>
+        </div>
+      </nav>
+    </aside>
 
-   <!-- CATEGORIAS -->
-<section class="container py-4">
-    <h2 class="section-title">Categorias</h2>
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main>
+      <!-- HERO SECTION -->
+      <section
+        id="hero"
+        class="hero d-flex align-items-center px-3"
+        aria-labelledby="heroTitle"
+      >
+        <div class="container">
+          <h1 id="heroTitle" class="fw-bold text-white display-5">
+            As Melhores Bebidas
+          </h1>
+          <p class="text-light fs-5">Entrega rápida e preços imbatíveis.</p>
+          <a href="#produtos" class="btn btn-primary-custom mt-2">
+            <i class="bi bi-cart-plus me-2"></i>Comprar Agora
+          </a>
+        </div>
+      </section>
 
-    <div class="row g-3">
-
-        <div class="col-12">
-            <div class="categoria-bg" style="background-image: url('../imagens/cerveja-dudu.jpg');">
-                <h3>Cervejas</h3>
-            </div>
+      <!-- SEÇÃO DE PROMOÇÕES -->
+      <section class="relampago-items container py-4">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <h2 class="relamp-title">⚡ Promoções Relâmpago</h2>
         </div>
 
-        <div class="col-12">
-            <div class="categoria-bg" style="background-image: url('../imagens/vinho-dudu.jpg');">
-                <h3>Vinhos</h3>
-            </div>
+        <div class="relamp-scroll">
+          <!-- ITEM 1 -->
+          <div class="relamp-card">
+            <span class="relamp-badge">-35%</span>
+            <img src="../imagens/whisky-dudu.jpg" alt="Heineken" />
+            <h4>Heineken 600ml</h4>
+            <p class="old-price">R$ 12,90</p>
+            <p class="new-price">R$ 8,40</p>
+            <button class="btn-relamp-buy">Aproveitar</button>
+          </div>
+
+          <!-- ITEM 2 -->
+          <div class="relamp-card">
+            <span class="relamp-badge">-22%</span>
+            <img src="../imagens/cerveja-dudu.jpg" alt="Red Bull" />
+            <h4>Red Bull 250ml</h4>
+            <p class="old-price">R$ 12,00</p>
+            <p class="new-price">R$ 9,40</p>
+            <button class="btn-relamp-buy">Aproveitar</button>
+          </div>
+
+          <!-- ITEM 3 -->
+          <div class="relamp-card">
+            <span class="relamp-badge">-40%</span>
+            <img src="../imagens/whisky-dudu.jpg" alt="Coca Cola" />
+            <h4>Coca-Cola 2L</h4>
+            <p class="old-price">R$ 11,99</p>
+            <p class="new-price">R$ 7,10</p>
+            <button class="btn-relamp-buy">Aproveitar</button>
+          </div>
+
+          <!-- ITEM 4 -->
+          <div class="relamp-card">
+            <span class="relamp-badge">-18%</span>
+            <img src="../imagens/whisky-dudu.jpg" alt="Jack Daniels 1L" />
+            <h4>Jack Daniel's 1L</h4>
+            <p class="old-price">R$ 149,90</p>
+            <p class="new-price">R$ 122,90</p>
+            <button class="btn-relamp-buy">Aproveitar</button>
+          </div>
+
+          <!-- ITEM 5 -->
+          <div class="relamp-card">
+            <span class="relamp-badge">-28%</span>
+            <img src="../imagens/whisky-dudu.jpg" alt="Monster" />
+            <h4>Monster 473ml</h4>
+            <p class="old-price">R$ 12,50</p>
+            <p class="new-price">R$ 8,99</p>
+            <button class="btn-relamp-buy">Aproveitar</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- SEÇÃO DE PRODUTOS -->
+      <section
+        id="produtos"
+        class="produtos-section container"
+        aria-labelledby="produtosTitle"
+      >
+        <!-- CABEÇALHO DA SEÇÃO -->
+        <div class="section-header">
+          <h2 id="produtosTitle" class="section-title">Nossos Produtos</h2>
+          <span class="text-muted" style="font-size: 14px" aria-live="polite">
+            <span id="totalProdutos">0</span> produtos
+          </span>
         </div>
 
-        <div class="col-12">
-            <div class="categoria-bg" style="background-image: url('../imagens/whisky-dudu.jpg');">
-                <h3>Destilados</h3>
-            </div>
+        <!-- FILTROS DE CATEGORIA -->
+        <div
+          class="filter-tabs"
+          role="tablist"
+          aria-label="Filtros de categoria"
+        >
+          <button
+            class="filter-btn active"
+            data-filter="todos"
+            role="tab"
+            aria-selected="true"
+            aria-controls="produtosGrid"
+          >
+            Todos
+          </button>
+          <button
+            class="filter-btn"
+            data-filter="cerveja"
+            role="tab"
+            aria-selected="false"
+            aria-controls="produtosGrid"
+          >
+            <i class="bi bi-cup-straw me-1"></i>Cervejas
+          </button>
+          <button
+            class="filter-btn"
+            data-filter="vinho"
+            role="tab"
+            aria-selected="false"
+            aria-controls="produtosGrid"
+          >
+            <i class="bi bi-cup me-1"></i>Vinhos
+          </button>
+          <button
+            class="filter-btn"
+            data-filter="destilado"
+            role="tab"
+            aria-selected="false"
+            aria-controls="produtosGrid"
+          >
+            <i class="bi bi-droplet me-1"></i>Destilados
+          </button>
+          <button
+            class="filter-btn"
+            data-filter="refrigerante"
+            role="tab"
+            aria-selected="false"
+            aria-controls="produtosGrid"
+          >
+            <i class="bi bi-cup-hot me-1"></i>Refrigerantes
+          </button>
+          <button
+            class="filter-btn"
+            data-filter="energetico"
+            role="tab"
+            aria-selected="false"
+            aria-controls="produtosGrid"
+          >
+            <i class="bi bi-lightning me-1"></i>Energéticos
+          </button>
         </div>
 
-    </div>
-</section>
+        <!-- GRID DE PRODUTOS -->
+        <div
+          class="produtos-grid"
+          id="produtosGrid"
+          role="tabpanel"
+          aria-label="Lista de produtos"
+        >
+          <!-- Os produtos serão inseridos aqui via JavaScript -->
+          <div class="loading">
+            <div class="spinner" role="status">
+              <span class="visually-hidden">Carregando produtos...</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
 
-    <!-- PRomoções -->
-    <section class="container py-4">
-      <h2 class="section-title">Promoções</h2>
+    <!-- RODAPÉ -->
+    <footer id="contato" class="bg-black text-white py-5 mt-5">
+      <div class="container">
+        <div class="row">
+          <!-- SOBRE -->
+          <div class="col-md-4 mb-4">
+            <h5 class="logo mb-3">Dudu <span>Bebidas</span></h5>
+            <p class="text-light small">
+              As melhores bebidas com entrega rápida e preços imbatíveis. Sua
+              satisfação é nossa prioridade!
+            </p>
+          </div>
 
-      <div class="row g-3">
-        <div class="col-6 col-md-4">
-          <div class="produto-card p-2">
-            <img
-              src="../imagens/whisky-dudu.jpg"
-              class="w-100 rounded"
-              alt=""
-            />
-            <h3 class="prod-title mt-2">Skol Beats</h3>
-            <p><span class="preco">R$ 6,99</span> <span class="text-decoration-line-through">R$ 7,99</span></p>
-            <button class="btn btn-secondary-custom w-100">Adicionar</button>
+          <!-- LINKS RÁPIDOS -->
+          <div class="col-md-4 mb-4">
+            <h6 class="text-uppercase mb-3">Links Rápidos</h6>
+            <ul class="list-unstyled">
+              <li>
+                <a href="#hero" class="text-light text-decoration-none small"
+                  >Início</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#produtos"
+                  class="text-light text-decoration-none small"
+                  >Produtos</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-light text-decoration-none small"
+                  >Sobre Nós</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-light text-decoration-none small"
+                  >Termos de Uso</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- CONTATO -->
+          <div class="col-md-4 mb-4">
+            <h6 class="text-uppercase mb-3">Contato</h6>
+            <p class="text-light small mb-2">
+              <i class="bi bi-whatsapp me-2"></i>(11) 99999-9999
+            </p>
+            <p class="text-light small mb-2">
+              <i class="bi bi-envelope me-2"></i>contato@dudububebidas.com.br
+            </p>
+            <p class="text-light small mb-3">
+              <i class="bi bi-geo-alt me-2"></i>São Paulo, SP
+            </p>
+
+            <!-- REDES SOCIAIS -->
+            <div class="d-flex gap-3">
+              <a href="#" class="text-white" aria-label="Facebook">
+                <i class="bi bi-facebook fs-5"></i>
+              </a>
+              <a href="#" class="text-white" aria-label="Instagram">
+                <i class="bi bi-instagram fs-5"></i>
+              </a>
+              <a href="#" class="text-white" aria-label="WhatsApp">
+                <i class="bi bi-whatsapp fs-5"></i>
+              </a>
+            </div>
           </div>
         </div>
 
-        <div class="col-6 col-md-4">
-          <div class="produto-card p-2">
-            <img
-              src="../imagens/whisky-dudu.jpg"
-              class="w-100 rounded"
-              alt=""
-            />
-            <h3 class="prod-title mt-2">Budweiser</h3>
-            <p><span class="preco">R$ 6,99</span> <span class="text-decoration-line-through">R$ 9,99</span></p>
-            <button class="btn btn-secondary-custom w-100">Adicionar</button>
-          </div>
-        </div>
-
-        <div class="col-6 col-md-4">
-          <div class="produto-card p-2">
-            <img
-              src="../imagens/whisky-dudu.jpg"
-              class="w-100 rounded"
-              alt=""
-            />
-            <h3 class="prod-title mt-2">Red Label</h3>
-            <p><span class="preco">R$ 6,99</span> <span class="text-decoration-line-through">R$ 8,99</span></p>
-            <button class="btn btn-secondary-custom w-100">Adicionar</button>
+        <!-- COPYRIGHT -->
+        <div class="row mt-4 pt-4 border-top border-secondary">
+          <div class="col text-center">
+            <p class="text-light small mb-0">
+              &copy; 2024 Dudu Bebidas. Todos os direitos reservados. | Beba com
+              Moderação.
+            </p>
           </div>
         </div>
       </div>
-    </section>
+    </footer>
 
-<section class="products-section container py-4">
+    <!-- BOOTSTRAP JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Categoria: Cervejas -->
-     
-    <div class="category-block mb-4">
-        <div class="d-flex justify-content-between align-items-center mb-2">
-            <h2 class="category-title">Cervejas</h2>
-            <a href="#" class="see-all">Ver tudo</a>
-        </div>
-
-        <div class="products-scroll">
-
-            <!-- Card Produto -->
-            <div class="product-card">
-                <img src="img/heineken.jpg" alt="Heineken">
-                <h4>Heineken 600ml</h4>
-                <p class="price">R$ 10,90</p>
-                <button class="btn btn-buy">Comprar</button>
-            </div>
-
-            <div class="product-card">
-                <img src="img/brahma.jpg" alt="Brahma DM">
-                <h4>Brahma Duplo Malte</h4>
-                <p class="price">R$ 4,59</p>
-                <button class="btn btn-buy">Comprar</button>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- Categoria: Refrigerantes -->
-    <div class="category-block mb-4">
-        <div class="d-flex justify-content-between align-items-center mb-2">
-            <h2 class="category-title">Refrigerantes</h2>
-            <a href="#" class="see-all">Ver tudo</a>
-        </div>
-
-        <div class="products-scroll">
-
-            <div class="product-card">
-                <img src="img/coca2l.jpg" alt="Coca-Cola 2L">
-                <h4>Coca-Cola 2L</h4>
-                <p class="price">R$ 9,99</p>
-                <button class="btn btn-buy">Comprar</button>
-            </div>
-
-            <div class="product-card">
-                <img src="img/guarana2l.jpg" alt="Guaraná">
-                <h4>Guaraná Antártica 2L</h4>
-                <p class="price">R$ 8,99</p>
-                <button class="btn btn-buy">Comprar</button>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- Categoria: Águas -->
-    <div class="category-block mb-4">
-        <div class="d-flex justify-content-between align-items-center mb-2">
-            <h2 class="category-title">Águas</h2>
-            <a href="#categoria-cervejas" class="see-all">Ver tudo</a>
-        </div>
-
-        <div class="products-scroll">
-
-            <div class="product-card">
-                <img src="img/crystal.jpg" alt="Crystal 500ml">
-                <h4>Água Crystal 500ml</h4>
-                <p class="price">R$ 2,50</p>
-                <button class="btn btn-buy">Comprar</button>
-            </div>
-
-            <div class="product-card">
-                <img src="img/indaiá.jpg" alt="Indaiá">
-                <h4>Água Indaiá 1.5L</h4>
-                <p class="price">R$ 3,90</p>
-                <button class="btn btn-buy">Comprar</button>
-            </div>
-
-        </div>
-    </div>
-
-</section>
-
-
-
+    <!-- JAVASCRIPT CUSTOMIZADO -->
+    <script src="../JavaScript/script.js"></script>
   </body>
 </html>
