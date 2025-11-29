@@ -27,7 +27,7 @@
 
     <!-- CSS CUSTOMIZADO -->
     <link rel="stylesheet" href="../style/style.css" />
-
+    <link rel="stylesheet" href="../style/desktop.css">
     <!-- FAVICON (adicione seu favicon) -->
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
   </head>
@@ -99,7 +99,6 @@
         </form>
       </div>
     </header>
-
     <!-- MENU MOBILE (OFFCANVAS) -->
     <aside
       class="offcanvas offcanvas-end bg-black text-white"
@@ -154,19 +153,59 @@
       </nav>
     </aside>
     <!-- BANNER DE PROMOÇÃO -->
-    <a href="#" class="text-decoration-none">
-      <header class="container-fluid header-promoção m-0 p-2 bg-warning">
+   <div class="banner-carousel">
+  <div class="banner-slides">
+    <!-- Banner 1 -->
+    <a href="#" class="banner-slide active text-decoration-none">
+      <div class="container-fluid header-promoção m-0 p-2 bg-warning">
         <h4 class="text-danger text-center fw-bold text-uppercase">
-          🔥Promoções imperdiveis🔥
+          🔥Promoções imperdíveis🔥
         </h4>
         <p class="text-center text-black pt-3 fw-light">
-          <span class="text-danger fw-bold fs-5">Promoções relampago:</span> com
-          produtos com até <span class="text-danger fw-bold">50%off</span>.
-          <span class="text-danger fw-bold">Clique aqui</span> garanta ja o seu!
+          <span class="text-danger fw-bold fs-5">Promoções relâmpago:</span> com
+          produtos com até <span class="text-danger fw-bold">50% OFF</span>.
+          <span class="text-danger fw-bold">Clique aqui</span> e garanta já o seu!
         </p>
-      </header>
+      </div>
     </a>
 
+    <!-- Banner 2 -->
+    <a href="#" class="banner-slide text-decoration-none">
+      <div class="container-fluid header-promoção m-0 p-2 bg-danger">
+        <h4 class="text-white text-center fw-bold text-uppercase">
+          ⚡ Oferta do Dia ⚡
+        </h4>
+        <p class="text-center text-white pt-3 fw-light">
+          <span class="text-warning fw-bold fs-5">Cervejas em promoção!</span>
+          Compre 2 e leve 3. Válido apenas <span class="text-warning fw-bold">HOJE</span>.
+          <span class="text-warning fw-bold">Aproveite!</span>
+        </p>
+      </div>
+    </a>
+
+    <!-- Banner 3 -->
+    <a href="#" class="banner-slide text-decoration-none">
+      <div class="container-fluid header-promoção m-0 p-2 bg-black">
+        <h4 class="text-warning text-center fw-bold text-uppercase">
+          🎉 Frete Grátis 🎉
+        </h4>
+        <p class="text-center text-white pt-3 fw-light">
+          <span class="text-warning fw-bold fs-5">Entrega gratuita</span> em
+          compras acima de <span class="text-warning fw-bold">R$ 50</span>.
+          <span class="text-warning fw-bold">Peça agora!</span>
+        </p>
+      </div>
+    </a>
+  </div>
+
+  <!-- Indicadores -->
+  <div class="banner-indicators">
+    <button class="indicator active" data-slide="0" aria-label="Banner 1"></button>
+    <button class="indicator" data-slide="1" aria-label="Banner 2"></button>
+    <button class="indicator" data-slide="2" aria-label="Banner 3"></button>
+  </div>
+  </div>
+    </a>
     <!-- CONTEÚDO PRINCIPAL -->
     <main>
       <!-- HERO SECTION -->
@@ -191,7 +230,6 @@
           </a>
         </div>
       </section>
-
       <!-- SEÇÃO DE PRODUTOS -->
       <section
         id="produtos"
@@ -291,7 +329,6 @@
         </div>
       </section>
     </main>
-
     <!-- RODAPÉ -->
     <footer id="contato" class="bg-black text-white py-5 mt-5">
       <div class="container">
@@ -373,10 +410,8 @@
         </div>
       </div>
     </footer>
-
     <!-- BOOTSTRAP JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
     <!-- JAVASCRIPT CUSTOMIZADO -->
     <script src="../JavaScript/script.js"></script>
   </body>

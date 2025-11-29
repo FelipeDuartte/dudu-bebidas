@@ -304,3 +304,60 @@ function scrollCarousel(id, direction) {
     behavior: "smooth",
   });
 }
+document.addEventListener('DOMContentLoaded', function() {
+  const slides = document.querySelectorAll('.banner-slide');
+  const indicators = document.querySelectorAll('.indicator');
+  let currentSlide = 0;
+  let slideInterval;
+
+  // Função para mostrar slide específico
+  function showSlide(index) {
+    // Remove active de todos
+    slides.forEach(slide => slide.classList.remove('active'));
+    indicators.forEach(indicator => indicator.classList.remove('active'));
+
+    // Adiciona active no slide atual
+    slides[index].classList.add('active');
+    indicators[index].classList.add('active');
+  }
+
+  // Função para próximo slide
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }
+
+  // Função para slide anterior
+  function prevSlide() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+  }
+
+  // Auto-play (troca a cada 4 segundos)
+  function startAutoPlay() {
+    slideInterval = setInterval(nextSlide, 4000);
+  }
+
+  // Para o auto-play
+  function stopAutoPlay() {
+    clearInterval(slideInterval);
+  }
+
+  // Click nos indicadores
+  indicators.forEach((indicator, index) => {
+    indicator.addEventListener('click', () => {
+      currentSlide = index;
+      showSlide(currentSlide);
+      stopAutoPlay();
+      startAutoPlay(); // Reinicia o auto-play
+    });
+  });
+
+  // Pausa ao passar o mouse
+  const bannerCarousel = document.querySelector('.banner-carousel');
+  bannerCarousel.addEventListener('mouseenter', stopAutoPlay);
+  bannerCarousel.addEventListener('mouseleave', startAutoPlay);
+
+  // Inicia o carrossel
+  startAutoPlay();
+});

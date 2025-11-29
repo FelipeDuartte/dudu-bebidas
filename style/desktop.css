@@ -1,0 +1,480 @@
+@media (min-width: 992px) {
+  /* Aumenta tamanho do logo */
+  .logo {
+    font-size: 28px;
+  }
+
+  /* Navbar com mais padding */
+  .navbar {
+    padding: 15px 40px !important;
+  }
+
+  /* Container de busca mais espaçoso */
+  .search-container {
+    padding: 12px 40px !important;
+  }
+
+  .search-box {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 8px 20px;
+  }
+
+  .search-input {
+    font-size: 18px;
+  }
+
+  .search-icon {
+    font-size: 24px;
+  }
+
+  /* Ícones do header maiores */
+  .bi-person,
+  .bi-cart {
+    font-size: 2rem !important;
+    transition: all 0.3s ease;
+  }
+
+  .bi-person:hover,
+  .bi-cart:hover {
+    transform: scale(1.1);
+    color: #ffd700 !important;
+  }
+}
+
+/* ===========================
+   BANNER DE PROMOÇÃO
+   =========================== */
+@media (min-width: 992px) {
+  .header-promoção {
+    min-height: 140px;
+    padding: 20px !important;
+  }
+
+  .header-promoção h4 {
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+  }
+
+  .header-promoção p {
+    font-size: 1.1rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-top: 12px !important;
+  }
+
+  .banner-indicators {
+    bottom: 12px;
+  }
+
+  .indicator {
+    width: 12px;
+    height: 12px;
+  }
+
+  .indicator.active {
+    width: 28px;
+  }
+}
+
+/* ===========================
+   HERO SECTION
+   =========================== */
+@media (min-width: 992px) {
+  .hero {
+    height: 600px;
+    padding: 0 60px;
+  }
+
+  .hero h1 {
+    font-size: 3.5rem !important;
+    margin-bottom: 20px;
+  }
+
+  .hero p {
+    font-size: 1.5rem !important;
+    max-width: 700px;
+  }
+
+  .btn-primary-custom {
+    padding: 14px 32px;
+    font-size: 18px;
+    margin-top: 25px !important;
+  }
+
+  .btn-primary-custom:hover {
+    box-shadow: 0 6px 16px rgba(255, 215, 0, 0.4);
+  }
+}
+
+/* ===========================
+   SEÇÃO DE PRODUTOS
+   =========================== */
+@media (min-width: 992px) {
+  .produtos-section {
+    padding: 60px 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-size: 2.5rem !important;
+  }
+
+  /* Filtros com melhor espaçamento */
+  .filter-tabs {
+    gap: 15px;
+    margin-bottom: 40px;
+    justify-content: center;
+  }
+
+  .filter-btn {
+    padding: 12px 30px;
+    font-size: 16px;
+    border-radius: 30px;
+  }
+
+  .filter-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+}
+
+/* ===========================
+   GRID DE PRODUTOS DESKTOP
+   =========================== */
+@media (min-width: 992px) {
+  .produtos-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .produtos-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 28px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .produtos-grid {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 30px;
+  }
+}
+
+/* ===========================
+   CARDS DE PRODUTO DESKTOP
+   =========================== */
+@media (min-width: 992px) {
+  .produto-card {
+    border-radius: 16px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .produto-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+    border-color: #ffd700;
+  }
+
+  .produto-img-container {
+    height: 220px;
+  }
+
+  .produto-card:hover .produto-img {
+    transform: scale(1.15);
+  }
+
+  /* Badges maiores */
+  .badge-promo {
+    font-size: 14px;
+    padding: 6px 14px;
+    top: 12px;
+    left: 12px;
+  }
+
+  .badge-estoque {
+    font-size: 12px;
+    padding: 5px 12px;
+    bottom: 12px;
+    left: 12px;
+  }
+
+  /* Botão favorito maior */
+  .btn-favorito {
+    width: 40px;
+    height: 40px;
+    top: 12px;
+    right: 12px;
+  }
+
+  .btn-favorito i {
+    font-size: 20px;
+  }
+
+  .btn-favorito:hover {
+    transform: scale(1.15);
+  }
+
+  /* Informações do produto */
+  .produto-info {
+    padding: 16px;
+  }
+
+  .produto-categoria {
+    font-size: 12px;
+    margin-bottom: 6px;
+  }
+
+  .produto-nome {
+    font-size: 16px;
+    height: 42px;
+    margin-bottom: 10px;
+  }
+
+  .produto-precos {
+    margin-bottom: 12px;
+  }
+
+  .preco-atual {
+    font-size: 22px;
+  }
+
+  .preco-antigo {
+    font-size: 15px;
+  }
+
+  .desconto-percentual {
+    font-size: 12px;
+    padding: 3px 8px;
+  }
+
+  /* Botão adicionar ao carrinho */
+  .btn-add-cart {
+    padding: 12px;
+    font-size: 15px;
+    border-radius: 10px;
+  }
+
+  .btn-add-cart:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(255, 215, 0, 0.4);
+  }
+
+  .btn-add-cart i {
+    font-size: 18px;
+  }
+}
+
+/* ===========================
+   ESTADO VAZIO DESKTOP
+   =========================== */
+@media (min-width: 992px) {
+  .empty-state {
+    padding: 80px 40px;
+  }
+
+  .empty-state i {
+    font-size: 80px;
+    margin-bottom: 20px;
+  }
+
+  .empty-state h4 {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  .empty-state p {
+    font-size: 16px;
+  }
+}
+
+/* ===========================
+   FOOTER DESKTOP
+   =========================== */
+@media (min-width: 992px) {
+  footer {
+    padding: 60px 40px !important;
+  }
+
+  footer .container {
+    max-width: 1400px;
+  }
+
+  footer .row {
+    gap: 40px;
+  }
+
+  footer h5,
+  footer h6 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  footer p,
+  footer a {
+    font-size: 15px;
+  }
+
+  footer .bi {
+    font-size: 1.5rem !important;
+  }
+
+  footer .d-flex.gap-3 {
+    gap: 20px !important;
+  }
+
+  footer .bi:hover {
+    color: #ffd700 !important;
+    transform: scale(1.2);
+    transition: all 0.3s ease;
+  }
+}
+
+/* ===========================
+   MENU OFFCANVAS (DESKTOP)
+   =========================== */
+@media (min-width: 992px) {
+  .offcanvas {
+    width: 400px !important;
+  }
+
+  .offcanvas-body {
+    padding: 30px;
+  }
+
+  .nav-link {
+    font-size: 18px;
+    padding: 12px 20px !important;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .nav-link:hover {
+    background: rgba(255, 215, 0, 0.1);
+    padding-left: 30px !important;
+  }
+
+  .nav-link i {
+    font-size: 20px;
+  }
+}
+
+/* ===========================
+   ANIMAÇÕES MELHORADAS
+   =========================== */
+@media (min-width: 992px) {
+  /* Animação de entrada suave */
+  .produto-card {
+    animation: fadeInUp 0.6s ease-out;
+  }
+
+  /* Animação escalonada */
+  .produto-card:nth-child(1) { animation-delay: 0.05s; }
+  .produto-card:nth-child(2) { animation-delay: 0.1s; }
+  .produto-card:nth-child(3) { animation-delay: 0.15s; }
+  .produto-card:nth-child(4) { animation-delay: 0.2s; }
+  .produto-card:nth-child(5) { animation-delay: 0.25s; }
+  .produto-card:nth-child(6) { animation-delay: 0.3s; }
+
+  /* Efeito parallax suave no hero */
+  .hero {
+    background-attachment: fixed;
+  }
+}
+
+/* ===========================
+   MELHORIAS DE PERFORMANCE
+   =========================== */
+@media (min-width: 992px) {
+  /* Otimização de rendering */
+  .produto-card {
+    will-change: transform;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+  }
+
+  /* Smooth scroll melhorado */
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+}
+
+/* ===========================
+   UTILITÁRIOS DESKTOP
+   =========================== */
+@media (min-width: 992px) {
+  /* Containers responsivos */
+  .container-fluid {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  /* Espaçamentos maiores */
+  .mt-5 {
+    margin-top: 4rem !important;
+  }
+
+  .py-5 {
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+  }
+
+  /* Bordas arredondadas maiores */
+  .rounded {
+    border-radius: 12px !important;
+  }
+
+  .rounded-pill {
+    border-radius: 50px !important;
+  }
+}
+
+/* ===========================
+   ACESSIBILIDADE DESKTOP
+   =========================== */
+@media (min-width: 992px) {
+  /* Focus visível melhorado */
+  *:focus-visible {
+    outline: 3px solid #ffd700;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Hover states mais evidentes */
+  a:hover,
+  button:hover {
+    cursor: pointer;
+  }
+
+  /* Transições suaves */
+  * {
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+  }
+}
+
+/* ===========================
+   TELAS ULTRA-WIDE (1920px+)
+   =========================== */
+@media (min-width: 1920px) {
+  .produtos-section {
+    max-width: 1800px;
+  }
+
+  .produtos-grid {
+    grid-template-columns: repeat(7, 1fr);
+    gap: 35px;
+  }
+
+  .hero h1 {
+    font-size: 4rem !important;
+  }
+
+  .section-title {
+    font-size: 3rem !important;
+  }
+}
