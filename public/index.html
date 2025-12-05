@@ -32,14 +32,14 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
   </head>
   <body>
-    <!-- HEADER / NAVEGAÇÃO PRINCIPAL -->
+   <!-- HEADER / NAVEGAÇÃO PRINCIPAL -->
     <header>
       <nav
         class="navbar navbar-dark bg-black px-3 py-2 sticky-top"
         role="navigation"
         aria-label="Navegação principal"
       >
-        <div class="container-fluid">
+        <div class="container-fluid desktop-nav">
           <!-- LOGO DUDU -->
           <a
             href="#"
@@ -48,38 +48,85 @@
           >
             Dudu <span>Bebidas</span>
           </a>
-          <!-- LOGO LOGIN-->
-          <a href="#">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="30"
-              height="30"
-              fill="currentColor"
-              class="bi bi-person text-warning fs-1"
-              viewBox="0 0 16 16"
-            >
-              <path
-                d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"
-              />
-            </svg>
-          </a>
-          <!-- LOGO CARRINHO DE COMPRAS -->
-          <a href="#"><span class="bi bi-cart text-white fs-2"></span></a>
-          <!-- BOTÃO DO MENU MOBILE -->
-          <button
-            class="navbar-toggler border-0 shadow-none"
-            type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#menu"
-            aria-controls="menu"
-            aria-label="Abrir menu de navegação"
+
+          <!-- MENU DESKTOP (oculto no mobile) -->
+          <div class="desktop-menu d-none d-lg-flex align-items-center gap-4">
+            <a href="#hero" class="nav-link-desktop">
+              <i class="bi bi-house-door me-1"></i>Início
+            </a>
+            <a href="#produtos" class="nav-link-desktop">
+              <i class="bi bi-tag me-1"></i>Promoções
+            </a>
+            <a href="#produtos" class="nav-link-desktop">
+              <i class="bi bi-grid me-1"></i>Categorias
+            </a>
+            <a href="#contato" class="nav-link-desktop">
+              <i class="bi bi-envelope me-1"></i>Contato
+            </a>
+          </div>
+
+          <!-- BARRA DE PESQUISA DESKTOP (oculta no mobile) -->
+          <form
+            class="search-box-desktop d-none d-lg-flex align-items-center bg-white rounded-pill border border-2 border-warning"
+            role="search"
+            aria-label="Formulário de busca de produtos"
           >
-            <span class="navbar-toggler-icon"></span>
-          </button>
+            <label for="searchInputDesktop" class="visually-hidden">Buscar bebidas</label>
+            <i class="bi bi-search search-icon-desktop" aria-hidden="true"></i>
+            <input
+              type="search"
+              id="searchInputDesktop"
+              class="form-control search-input-desktop"
+              placeholder="Buscar bebidas..."
+              aria-label="Campo de busca de produtos"
+            />
+          </form>
+
+          <!-- AÇÕES DO USUÁRIO -->
+          <div class="user-actions d-flex align-items-center gap-3">
+            <!-- LOGIN -->
+            <a href="#" class="user-action-btn" aria-label="Fazer login">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="currentColor"
+                class="bi bi-person"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"
+                />
+              </svg>
+              <span class="d-none d-lg-inline ms-1">Entrar</span>
+            </a>
+            
+            <!-- CARRINHO -->
+            <a href="#" class="user-action-btn cart-btn" aria-label="Ver carrinho">
+              <span class="position-relative">
+                <span class="bi bi-cart"></span>
+                <span class="cart-badge position-absolute">0</span>
+              </span>
+              <span class="d-none d-lg-inline ms-1">Carrinho</span>
+            </a>
+
+            <!-- BOTÃO DO MENU MOBILE -->
+            <button
+              class="navbar-toggler border-0 shadow-none d-lg-none"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#menu"
+              aria-controls="menu"
+              aria-label="Abrir menu de navegação"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
         </div>
       </nav>
-      <!-- BARRA DE PESQUISA -->
-      <div class="search-container bg-black px-3 py-2">
+      
+      <!-- BARRA DE PESQUISA MOBILE (visível apenas no mobile) -->
+      <div class="search-container bg-black px-3 py-2 d-lg-none">
         <form
           class="search-box d-flex align-items-center bg-white rounded rounded-pill border border-3 border-warning"
           role="search"
