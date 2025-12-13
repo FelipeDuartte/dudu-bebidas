@@ -7,7 +7,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 .produto-card:hover {
   transform: translateY(-15px) scale(1.02);
@@ -47,8 +47,13 @@
 }
 
 @keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
 }
 
 .badge-estoque {
@@ -84,7 +89,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   z-index: 2;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 .btn-favorito:hover {
   background: #ffd700;

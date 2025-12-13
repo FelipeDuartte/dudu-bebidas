@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&display=swap");
 
 * {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .navbar-custom {
@@ -43,7 +43,8 @@
   box-shadow: 0 2px 10px rgba(255, 215, 0, 0.2);
 }
 .search-box:focus-within {
-  box-shadow: 0 0 0 4px rgba(255, 215, 0, 0.2), 0 4px 20px rgba(255, 215, 0, 0.4);
+  box-shadow: 0 0 0 4px rgba(255, 215, 0, 0.2),
+    0 4px 20px rgba(255, 215, 0, 0.4);
   transform: scale(1.02);
   border-width: 3px;
 }
@@ -86,6 +87,11 @@
 }
 
 @keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
 }
