@@ -4,13 +4,13 @@ import "./Hero.css";
 
 export default function Hero() {
   return (
-    <section id="hero" className="hero-section">
+    <section id="hero" className="hero-section" style={{backgroundImage: 'url(./public/hero_dudu.png)'}}>
       {/* Pattern overlay decorativo */}
       <div className="hero-pattern"></div>
-      
+
       {/* Fade gradient na parte inferior */}
       <div className="bottom-fade"></div>
-      
+
       <div className="container position-relative">
         <div className="row align-items-center">
           <div className="col-lg-8">
@@ -23,7 +23,7 @@ export default function Hero() {
               Delivery rápido, seguro e repleto de ofertas especiais. Qualidade
               premium com preços que cabem no seu bolso!
             </p>
-            <a href="#produtos" className="btn btn-primary-custom">
+            <a href="#produtos" className="btn-primary-custom">
               <ShoppingCart size={20} className="me-2" />
               Explorar Produtos
             </a>

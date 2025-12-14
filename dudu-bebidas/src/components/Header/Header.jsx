@@ -16,8 +16,22 @@ export default function Header({
     >
       <nav className="navbar navbar-dark">
         <div className="container-fluid px-3 px-lg-4">
-          <a href="#" className="navbar-brand logo">
-            Dudu <span>Bebidas</span>
+          <a href="#" className="navbar-brand logo d-flex align-items-center gap-2">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="40" height="40" rx="10" fill="url(#gradient1)"/>
+              <path d="M20 8L12 15V28C12 29.1 12.9 30 14 30H26C27.1 30 28 29.1 28 28V15L20 8Z" fill="white" fillOpacity="0.9"/>
+              <circle cx="20" cy="20" r="4" fill="#ffd700"/>
+              <path d="M16 24H24V28H16V24Z" fill="rgba(255,255,255,0.7)"/>
+              <defs>
+                <linearGradient id="gradient1" x1="0" y1="0" x2="40" y2="40">
+                  <stop offset="0%" stopColor="#ffd700"/>
+                  <stop offset="100%" stopColor="#ffed4e"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <div>
+              Dudu <span>Bebidas</span>
+            </div>
           </a>
 
           {/* Search Desktop */}

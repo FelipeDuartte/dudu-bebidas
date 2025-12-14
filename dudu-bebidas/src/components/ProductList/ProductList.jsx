@@ -25,9 +25,9 @@ export default function ProductList({
           </div>
         </div>
 
-        {/* Category Filters */}
+         {/* Category Filters */}
         <div className="filter-container">
-          <div className="d-flex gap-3 ">
+          <div className="overflow-x-auto">
             {categories.map((cat) => (
               <button
                 key={cat.id}
