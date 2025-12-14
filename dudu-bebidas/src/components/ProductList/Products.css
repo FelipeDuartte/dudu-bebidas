@@ -1,3 +1,123 @@
+/* Products Section */
+#produtos {
+  background: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 100%);
+  position: relative;
+}
+
+/* Section Title */
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #000;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(135deg, #ffd700 0%, #ffb700 100%);
+  border-radius: 2px;
+}
+
+/* Badge de produtos disponíveis */
+.badge.bg-dark {
+  font-size: 14px;
+  padding: 0.5rem 0.75rem;
+  background-color: #212529 !important;
+  border-radius: 8px;
+}
+
+/* Container dos filtros - Design Limpo e Moderno */
+.filter-container {
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+.overflow-x-auto {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 12px 0;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+}
+
+.overflow-x-auto::-webkit-scrollbar {
+  height: 4px;
+}
+
+.overflow-x-auto::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.overflow-x-auto::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, #ffd700, #ffed4e);
+  border-radius: 10px;
+}
+
+.overflow-x-auto::-webkit-scrollbar-thumb:hover {
+  background: #ffd700;
+}
+
+/* Category Filter Buttons - Design Minimalista Premium */
+.filter-btn {
+  flex: 0 0 auto;
+  background: #ffffff;
+  border: none;
+  color: #666;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-btn:hover {
+  background: #f8f9fa;
+  color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Estado Ativo - Dourado Sólido */
+.filter-btn.active {
+  background: #ffd700;
+  color: #000;
+  box-shadow: 0 4px 16px rgba(255, 215, 0, 0.3);
+  transform: translateY(-2px);
+  font-weight: 700;
+}
+
+/* Ícone */
+.filter-btn i {
+  font-size: 16px;
+  transition: transform 0.25s ease;
+}
+
+.filter-btn:hover i {
+  transform: scale(1.1);
+}
+
+.filter-btn.active i {
+  transform: scale(1.15);
+}
+
+/* Product Card */
 .produto-card {
   background: white;
   border: 2px solid #f0f0f0;
@@ -8,29 +128,46 @@
   display: flex;
   flex-direction: column;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  animation: fadeInUp 0.6s ease-out backwards;
 }
+
 .produto-card:hover {
   transform: translateY(-15px) scale(1.02);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
   border-color: #ffd700;
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Product Image Container */
 .produto-img-container {
   position: relative;
   height: 220px;
   overflow: hidden;
   background: linear-gradient(135deg, #f8f9fa, #e9ecef);
 }
+
 .produto-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .produto-card:hover .produto-img {
   transform: scale(1.2) rotate(2deg);
 }
 
+/* Badges */
 .badge-promo {
   position: absolute;
   top: 15px;
@@ -69,11 +206,22 @@
   z-index: 2;
   backdrop-filter: blur(10px);
 }
+
 .badge-estoque.baixo {
   background: linear-gradient(135deg, #ff6b6b, #ff8787);
   animation: pulse 2s infinite;
 }
 
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Favorite Button */
 .btn-favorito {
   position: absolute;
   top: 15px;
@@ -91,12 +239,18 @@
   z-index: 2;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
+
 .btn-favorito:hover {
-  background: #ffd700;
+  background: rgb(226, 90, 90) !important;
   transform: scale(1.2) rotate(10deg);
   box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
 }
 
+.btn-favorito:active {
+  transform: scale(0.95);
+}
+
+/* Product Info */
 .produto-info {
   padding: 20px;
   display: flex;
@@ -104,10 +258,67 @@
   flex-grow: 1;
 }
 
+/* Categoria Badge */
+.produto-info .categoria-badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  margin-bottom: 0.5rem;
+  background: #f8f9fa;
+  color: #666;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.produto-card:hover .produto-info .categoria-badge {
+  background: #e9ecef;
+}
+
+/* Nome do Produto */
+.produto-info .produto-nome {
+  font-size: 15px;
+  line-height: 1.4;
+  min-height: 42px;
+  color: #000;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Preço */
+.produto-info .preco-atual {
+  font-size: 24px;
+  color: #ffd700;
+  font-weight: bold;
+}
+
+.produto-info .preco-antigo {
+  font-size: 13px;
+  color: #6c757d;
+  text-decoration: line-through;
+}
+
+.produto-info .badge-desconto {
+  background: linear-gradient(135deg, #000, #1a1a1a);
+  color: #ffd700;
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+/* Add to Cart Button - Versão Simples e Elegante */
 .btn-add-cart {
   background: linear-gradient(135deg, #000, #1a1a1a);
   color: #ffd700;
-  border: none;
+  border: 2px solid transparent;
   font-weight: 700;
   transition: all 0.3s ease;
   width: 100%;
@@ -115,22 +326,526 @@
   border-radius: 15px;
   font-size: 15px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-.btn-add-cart:hover {
-  background: linear-gradient(135deg, #ffd700, #ffed4e) !important;
-  color: black !important;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+  position: relative;
 }
 
+.btn-add-cart:hover {
+  background: #ffffff;
+  color: #000000 ;
+  border-color: #ffd700;
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.3);
+}
+
+.btn-add-cart:active {
+  transform: scale(0.97);
+}
+
+/* Ícone com movimento horizontal */
+.btn-add-cart svg {
+  transition: transform 0.3s ease;
+}
+
+.btn-add-cart:hover svg {
+  transform: translateX(5px);
+}
+
+/* Empty State */
+.col-12 .p-5 {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.empty-state-icon {
+  font-size: 64px;
+  color: #ddd;
+}
+
+/* Scrollbar Style for Category Filters */
 .overflow-x-auto::-webkit-scrollbar {
   height: 6px;
 }
+
 .overflow-x-auto::-webkit-scrollbar-track {
   background: #f1f1f1;
   border-radius: 10px;
 }
+
 .overflow-x-auto::-webkit-scrollbar-thumb {
   background: linear-gradient(90deg, #ffd700, #ffed4e);
   border-radius: 10px;
+}
+
+.overflow-x-auto::-webkit-scrollbar-thumb:hover {
+  background: #ffb700;
+}
+
+/* Smooth Grid Animation */
+.row > .col {
+  animation-fill-mode: backwards;
+}
+
+/* Responsive Styles */
+@media (max-width: 991px) {
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .filter-btn {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+  
+  .filter-btn i {
+    font-size: 15px;
+  }
+  
+  .produto-img-container {
+    height: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .filter-container {
+    margin-bottom: 2rem;
+  }
+  
+  .overflow-x-auto {
+    gap: 8px;
+    padding: 10px 0;
+  }
+  
+  .filter-btn {
+    padding: 10px 18px;
+    font-size: 13px;
+  }
+  
+  .filter-btn i {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+  .section-title {
+    font-size: 1.75rem;
+  }
+  
+  .produto-info {
+    padding: 16px;
+  }
+  
+  .filter-btn {
+    padding: 8px 16px;
+    font-size: 12px;
+    gap: 6px;
+  }
+  
+  .filter-btn i {
+    font-size: 13px;
+  }
+  
+  .btn-add-cart {
+    padding: 12px;
+    font-size: 14px;
+  }
+  
+  .badge-promo,
+  .badge-estoque {
+    font-size: 10px;
+    padding: 6px 12px;
+  }
+  
+  .btn-favorito {
+    width: 38px;
+    height: 38px;
+  }
+  
+  .produto-img-container {
+    height: 180px;
+  }
+  
+  .overflow-x-auto {
+    gap: 6px;
+  }
+  
+  /* Badge de produtos disponíveis menor no mobile */
+  .badge.bg-dark {
+    font-size: 12px;
+    padding: 0.4rem 0.6rem;
+  }
+}
+
+/* Category Filter Buttons - Design Moderno */
+.filter-btn {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: #333;
+  padding: 12px 24px;
+  border-radius: 16px;
+  font-weight: 600;
+  font-size: 13px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Brilho sutil no hover */
+.filter-btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 215, 0, 0.15);
+  transform: translate(-50%, -50%);
+  transition: width 0.5s ease, height 0.5s ease;
+}
+
+.filter-btn:hover::after {
+  width: 200px;
+  height: 200px;
+}
+
+.filter-btn:hover {
+  background: rgba(255, 255, 255, 1);
+  border-color: rgba(255, 215, 0, 0.3);
+  color: #000;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.filter-btn.active {
+  background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+  border-color: #000000;
+  color: #ffd700;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.filter-btn.active::after {
+  display: none;
+}
+
+.filter-btn i {
+  font-size: 15px;
+  margin-right: 6px;
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+.filter-btn:hover i {
+  transform: translateY(-2px);
+}
+
+.filter-btn.active i {
+  color: #ffd700;
+}
+
+/* Container dos filtros com scroll suave */
+.overflow-x-auto {
+  position: relative;
+  -webkit-overflow-scrolling: touch;
+  padding: 4px 0;
+}
+
+/* Gradiente de fade nas bordas */
+.overflow-x-auto::before,
+.overflow-x-auto::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 60px;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.7;
+}
+
+.overflow-x-auto::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(248, 249, 250, 1) 0%, rgba(248, 249, 250, 0) 100%);
+}
+
+.overflow-x-auto::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(248, 249, 250, 1) 0%, rgba(248, 249, 250, 0) 100%);
+}
+
+/* Product Card */
+.produto-card {
+  background: white;
+  border: 2px solid #f0f0f0;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  animation: fadeInUp 0.6s ease-out backwards;
+}
+
+.produto-card:hover {
+  transform: translateY(-15px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  border-color: #ffd700;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Product Image Container */
+.produto-img-container {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+}
+
+.produto-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.produto-card:hover .produto-img {
+  transform: scale(1.2) rotate(2deg);
+}
+
+/* Badges */
+.badge-promo {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: linear-gradient(135deg, #ffd700, #ffed4e);
+  color: black;
+  padding: 8px 16px;
+  border-radius: 25px;
+  font-size: 12px;
+  font-weight: 800;
+  z-index: 2;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.badge-estoque {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  z-index: 2;
+  backdrop-filter: blur(10px);
+}
+
+.badge-estoque.baixo {
+  background: linear-gradient(135deg, #ff6b6b, #ff8787);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Favorite Button */
+.btn-favorito {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 2;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-favorito:hover {
+  background: #ffd700;
+  transform: scale(1.2) rotate(10deg);
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+}
+
+.btn-favorito:active {
+  transform: scale(0.95);
+}
+
+/* Product Info */
+.produto-info {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* Categoria Badge */
+.produto-info .d-inline-block.px-2 {
+  transition: all 0.3s ease;
+}
+
+.produto-card:hover .produto-info .d-inline-block.px-2 {
+  background: #e9ecef !important;
+}
+
+/* Nome do Produto */
+.produto-info h3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Add to Cart Button - Versão Simples e Elegante */
+.btn-add-cart {
+  background: linear-gradient(135deg, #000, #1a1a1a);
+  color: #ffd700 !important;
+  border: 2px solid transparent;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  width: 100%;
+  padding: 14px;
+  border-radius: 15px;
+  font-size: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.btn-add-cart:hover {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border-color: #ffd700;
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.3);
+}
+
+.btn-add-cart:active {
+  transform: scale(0.97);
+}
+
+/* Ícone com movimento horizontal */
+.btn-add-cart svg {
+  transition: transform 0.3s ease;
+}
+
+.btn-add-cart:hover svg {
+  transform: translateX(5px);
+}
+
+/* Empty State */
+.col-12 .p-5 {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Scrollbar Style for Category Filters */
+.overflow-x-auto::-webkit-scrollbar {
+  height: 6px;
+}
+
+.overflow-x-auto::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.overflow-x-auto::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, #ffd700, #ffed4e);
+  border-radius: 10px;
+}
+
+.overflow-x-auto::-webkit-scrollbar-thumb:hover {
+  background: #ffb700;
+}
+
+/* Smooth Grid Animation */
+.row > .col {
+  animation-fill-mode: backwards;
+}
+
+/* Responsive Styles */
+@media (max-width: 991px) {
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .filter-btn {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+  
+  .produto-img-container {
+    height: 200px;
+  }
+}
+
+@media (max-width: 576px) {
+  .section-title {
+    font-size: 1.75rem;
+  }
+  
+  .produto-info {
+    padding: 16px;
+  }
+  
+  .filter-btn {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+  
+  .btn-add-cart {
+    padding: 12px;
+    font-size: 14px;
+  }
+  
+  .badge-promo,
+  .badge-estoque {
+    font-size: 10px;
+    padding: 6px 12px;
+  }
+  
+  .btn-favorito {
+    width: 38px;
+    height: 38px;
+  }
+  
+  .produto-img-container {
+    height: 180px;
+  }
 }

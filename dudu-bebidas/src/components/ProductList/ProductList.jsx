@@ -19,32 +19,28 @@ export default function ProductList({
             <h2 className="section-title">Nossos Produtos</h2>
           </div>
           <div className="text-end">
-            <span
-              className="badge bg-dark px-3 py-2"
-              style={{ fontSize: "14px" }}
-            >
+            <span className="badge bg-dark">
               {filteredProducts.length} produtos disponíveis
             </span>
           </div>
         </div>
 
         {/* Category Filters */}
-        <div
-          className="d-flex gap-3 overflow-x-auto pb-3 mb-5"
-          style={{ scrollbarWidth: "thin" }}
-        >
-          {categories.map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => setSelectedCategory(cat.id)}
-              className={`btn filter-btn ${
-                selectedCategory === cat.id ? "active" : ""
-              }`}
-            >
-              <i className={`${cat.icon} me-2`}></i>
-              {cat.label}
-            </button>
-          ))}
+        <div className="filter-container">
+          <div className="d-flex gap-3 ">
+            {categories.map((cat) => (
+              <button
+                key={cat.id}
+                onClick={() => setSelectedCategory(cat.id)}
+                className={`filter-btn ${
+                  selectedCategory === cat.id ? "active" : ""
+                }`}
+              >
+                <i className={cat.icon}></i>
+                {cat.label}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Products Grid */}
@@ -63,10 +59,7 @@ export default function ProductList({
           ) : (
             <div className="col-12 text-center py-5">
               <div className="p-5">
-                <i
-                  className="bi bi-search"
-                  style={{ fontSize: "64px", color: "#ddd" }}
-                ></i>
+                <i className="bi bi-search empty-state-icon"></i>
                 <h4 className="mt-4 mb-2">Nenhum produto encontrado</h4>
                 <p className="text-muted">
                   Tente buscar por outro termo ou categoria
