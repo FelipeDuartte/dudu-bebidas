@@ -234,8 +234,6 @@ export default function DuduBebidas() {
 
       <Hero />
 
-      <Benefits benefits={benefits} />
-
       <ProductList
         filteredProducts={filteredProducts}
         categories={categories}
@@ -245,6 +243,8 @@ export default function DuduBebidas() {
         addToCart={addToCart}
         favorites={favorites}
       />
+
+    <Benefits benefits={benefits} />
 
       <Footer />
     </div>

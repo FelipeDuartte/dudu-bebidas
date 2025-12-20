@@ -1,32 +1,54 @@
 import React from "react";
-import { ShoppingCart } from "lucide-react";
+import { ShoppingCart, Clock, Shield, Star } from "lucide-react";
 import "./Hero.css";
 
 export default function Hero() {
   return (
-    <section id="hero" className="hero-section" style={{backgroundImage: 'url(./public/hero_dudu.png)'}}>
-      {/* Pattern overlay decorativo */}
-      <div className="hero-pattern"></div>
+    <section id="hero" className="hero-section" style={{backgroundImage: 'url(./hero_dudu.png)'}}>
+      {/* Overlay */}
+      <div className="hero-overlay"></div>
 
-      {/* Fade gradient na parte inferior */}
-      <div className="bottom-fade"></div>
+      <div className="container">
+        <div className="row justify-content-center">
+          <div className="col-lg-10 col-xl-8">
+            <div className="hero-content">
+              
+              {/* Main Heading */}
+              <h1 className="hero-title">
+                Melhores bebidas com
+                <span className="hero-highlight"> Desconto de até 50%</span>
+              </h1>
 
-      <div className="container position-relative">
-        <div className="row align-items-center">
-          <div className="col-lg-8">
-            <h1 className="display-3 fw-bold text-white mb-3">
-              As Melhores Bebidas
-              <br />
-              <span>Direto na Sua Porta</span>
-            </h1>
-            <p className="text-white fs-5 mb-4">
-              Delivery rápido, seguro e repleto de ofertas especiais. Qualidade
-              premium com preços que cabem no seu bolso!
-            </p>
-            <a href="#produtos" className="btn-primary-custom">
-              <ShoppingCart size={20} className="me-2" />
-              Explorar Produtos
-            </a>
+              {/* Subtitle */}
+              <p className="hero-subtitle">
+                Entrega rápida com produtos das melhores marcas e preços que cabem no seu bolso.
+              </p>
+
+              {/* Trust Indicators */}
+              <div className="trust-row">
+                <div className="trust-item">
+                  <Clock size={20} />
+                  <span>Entrega rápida</span>
+                </div>
+                <div className="trust-item">
+                  <Shield size={20} />
+                  <span>Compra 100% Segura</span>
+                </div>
+                <div className="trust-item">
+                  <Star size={20} />
+                  <span>Avaliação 5.0/5.0</span>
+                </div>
+              </div>
+
+              {/* CTA Button */}
+              <div className="hero-cta">
+                <a href="#produtos" className="btn-hero">
+                  <ShoppingCart size={22} />
+                  <span>Ver Ofertas Agora</span>
+                </a>
+              </div>
+
+            </div>
           </div>
         </div>
       </div>

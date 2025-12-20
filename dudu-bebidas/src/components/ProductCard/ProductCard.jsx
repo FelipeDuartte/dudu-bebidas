@@ -1,86 +1,106 @@
-import React from "react";
-import { Heart, Plus } from "lucide-react";
+import React, { useState } from "react";
+import { Plus, Check } from "lucide-react";
 
 export default function ProductCard({
   produto,
   index,
-  toggleFavorite,
   addToCart,
-  favorites,
 }) {
+  const [isAdded, setIsAdded] = useState(false);
+
+  const handleAddToCart = () => {
+    addToCart(produto);
+    setIsAdded(true);
+    
+    // Reset após 2 segundos
+    setTimeout(() => {
+      setIsAdded(false);
+    }, 2000);
+  };
+
   return (
-    <div className="col" style={{ animationDelay: `${index * 0.05}s` }}>
-      <div className="produto-card">
-        <div className="produto-img-container">
-          <img
-            src={produto.imagem}
-            alt={produto.nome}
-            className="produto-img"
-          />
-
-          {produto.promocao && (
-            <span className="badge-promo">
-              <i className="bi bi-lightning-charge-fill me-1"></i>
-              OFERTA
-            </span>
-          )}
-
-          {produto.estoque < 15 && (
-            <span className={`badge-estoque ${produto.estoque < 15 ? "baixo" : ""}`}>
-              <i className="bi bi-exclamation-circle-fill me-1"></i>
-              Últimas unidades
-            </span>
-          )}
-
-          <button
-            onClick={() => toggleFavorite(produto.id)}
-            className="btn-favorito"
-          >
-            <Heart
-              size={20}
-              fill={favorites.has(produto.id) ? "#ff0000" : "none"}
-              color={favorites.has(produto.id) ? "#ff0000" : "#000"}
-              strokeWidth={2.5}
+    <>
+      <div className="col" style={{ animationDelay: `${index * 0.05}s` }}>
+        <div className="produto-card">
+          <div className="produto-img-container">
+            <img
+              src={produto.imagem}
+              alt={produto.nome}
+              className="produto-img"
             />
-          </button>
-        </div>
 
-        <div className="produto-info">
-          <span className="categoria-badge">
-            {produto.categoria}
-          </span>
-
-          <h3 className="produto-nome">
-            {produto.nome}
-          </h3>
-
-          <div className="mb-3">
-            <div className="d-flex align-items-baseline gap-2 mb-1">
-              <span className="preco-atual">
-                R$ {produto.preco.toFixed(2)}
+            {produto.promocao && (
+              <span className="badge-promo">
+                <i className="bi bi-lightning-charge-fill me-1"></i>
+                OFERTA
               </span>
-            </div>
-            {produto.precoAntigo && (
-              <div className="d-flex align-items-center gap-2">
-                <span className="preco-antigo">
-                  R$ {produto.precoAntigo.toFixed(2)}
-                </span>
-                <span className="badge badge-desconto">
-                  -{produto.desconto}% OFF
-                </span>
-              </div>
+            )}
+
+            {produto.estoque < 15 && (
+              <span className={`badge-estoque ${produto.estoque < 15 ? "baixo" : ""}`}>
+                <i className="bi bi-exclamation-circle-fill me-1"></i>
+                Últimas unidades
+              </span>
             )}
           </div>
 
-          <button
-            onClick={() => addToCart(produto)}
-            className="btn-add-cart d-flex align-items-center gap-2 justify-content-center"
-          >
-            <Plus size={18} strokeWidth={3} />
-            Adicionar ao Carrinho
-          </button>
+          <div className="produto-info">
+            <span className="categoria-badge">
+              {produto.categoria}
+            </span>
+
+            <h3 className="produto-nome">
+              {produto.nome}
+            </h3>
+
+            <div className="mb-3">
+              <div className="d-flex align-items-baseline gap-2 mb-1">
+                <span className="preco-atual">
+                  R$ {produto.preco.toFixed(2)}
+                </span>
+              </div>
+              {produto.precoAntigo && (
+                <div className="d-flex align-items-center gap-2">
+                  <span className="preco-antigo">
+                    R$ {produto.precoAntigo.toFixed(2)}
+                  </span>
+                  <span className="badge badge-desconto">
+                    -{produto.desconto}% OFF
+                  </span>
+                </div>
+              )}
+            </div>
+
+            <button
+              onClick={handleAddToCart}
+              className={`btn-add-cart d-flex align-items-center gap-2 justify-content-center ${isAdded ? 'added' : ''}`}
+              disabled={isAdded}
+            >
+              {isAdded ? (
+                <>
+                  <Check size={18} strokeWidth={3} />
+                  Adicionado!
+                </>
+              ) : (
+                <>
+                  <Plus size={18} strokeWidth={3} />
+                  Adicionar ao Carrinho
+                </>
+              )}
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+
+      {/* Toast Notification */}
+      {isAdded && (
+        <div className="cart-notification-toast show">
+          <div className="notification-content">
+            <Check size={20} strokeWidth={3} />
+            <span>Produto adicionado ao carrinho!</span>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
