@@ -1,6 +1,6 @@
 .banner-slide {
   transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  min-height: 140px;
+  min-height: 80px;
   display: flex;
   align-items: center;
   position: relative;
@@ -17,7 +17,7 @@
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0.15),
     transparent
   );
   animation: shimmer 3s infinite;
@@ -29,23 +29,67 @@
   }
 }
 
-.banner-indicator {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.4);
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  padding: 0;
+.banner-slide .container {
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
 }
-.banner-indicator:hover {
-  background: rgba(255, 255, 255, 0.8);
-  transform: scale(1.4);
+
+.banner-slide h4 {
+  font-size: 18px !important;
+  margin-bottom: 0.25rem !important;
+  letter-spacing: 0.5px !important;
+  font-weight: 700 !important;
 }
-.banner-indicator.active {
-  background: #ffd700;
-  width: 30px;
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+
+.banner-slide p:first-of-type {
+  font-size: 13px !important;
+  margin-bottom: 0.25rem !important;
+}
+
+.banner-slide p:last-of-type {
+  font-size: 12px !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .banner-slide {
+    min-height: 70px;
+  }
+  
+  .banner-slide h4 {
+    font-size: 16px !important;
+  }
+  
+  .banner-slide p:first-of-type {
+    font-size: 12px !important;
+  }
+  
+  .banner-slide p:last-of-type {
+    font-size: 11px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .banner-slide {
+    min-height: 65px;
+  }
+  
+  .banner-slide .container {
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+  }
+  
+  .banner-slide h4 {
+    font-size: 14px !important;
+    margin-bottom: 0.15rem !important;
+  }
+  
+  .banner-slide p:first-of-type {
+    font-size: 11px !important;
+    margin-bottom: 0.15rem !important;
+  }
+  
+  .banner-slide p:last-of-type {
+    font-size: 10px !important;
+  }
 }

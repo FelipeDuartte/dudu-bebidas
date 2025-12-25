@@ -217,6 +217,12 @@ export default function DuduBebidas() {
   ];
   return (
     <div style={{ minHeight: "100vh", background: "#f8f9fa" }}>
+      <Banner
+        banners={banners}
+        currentBanner={currentBanner}
+        setCurrentBanner={setCurrentBanner}
+      />
+
       <Header
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
@@ -224,12 +230,6 @@ export default function DuduBebidas() {
         menuOpen={menuOpen}
         setMenuOpen={setMenuOpen}
         scrolled={scrolled}
-      />
-
-      <Banner
-        banners={banners}
-        currentBanner={currentBanner}
-        setCurrentBanner={setCurrentBanner}
       />
 
       <Hero />

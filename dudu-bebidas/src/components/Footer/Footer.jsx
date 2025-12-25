@@ -16,7 +16,7 @@ export default function Footer() {
             </p>
             <div className="d-flex gap-3">
               <a href="#" className="footer-social-link">
-                <i className="bi bi-facebook"></i>
+                <i className="bi bi-envelope"></i>
               </a>
               <a href="#" className="footer-social-link">
                 <i className="bi bi-instagram"></i>
@@ -77,7 +77,7 @@ export default function Footer() {
               <i className="bi bi-geo-alt"></i>
               <div className="contact-content">
                 <div className="contact-label">Localização</div>
-                <div className="contact-info">São Paulo, SP</div>
+                <div className="contact-info">Minas Gerais, MG</div>
               </div>
             </div>
           </div>
@@ -89,6 +89,9 @@ export default function Footer() {
               <p>
                 &copy; 2024 Dudu Bebidas. Todos os direitos reservados. | Beba com
                 Moderação.
+              </p>
+              <p className="text-warning mt-2">
+                Desenvolvido por <a href="https://seusite.com" target="_blank" className="text-decoration-none fst-italic fw-bold text-primary">Felipe Duarte ☕</a>
               </p>
             </div>
           </div>

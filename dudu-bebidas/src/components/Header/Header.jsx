@@ -1,5 +1,5 @@
 import React from "react";
-import { ShoppingCart, User, Search } from "lucide-react";
+import { ShoppingCart, User, Search, Wine, Beer, Coffee, Droplets } from "lucide-react";
 import "./Header.css";
 
 export default function Header({
@@ -10,6 +10,13 @@ export default function Header({
   setMenuOpen,
   scrolled,
 }) {
+  const categories = [
+    { name: "Vinhos", icon: Wine, href: "#vinhos" },
+    { name: "Cervejas", icon: Beer, href: "#cervejas" },
+    { name: "Destilados", icon: Droplets, href: "#destilados" },
+    { name: "Refrigerantes", icon: Coffee, href: "#refrigerantes" },
+  ];
+
   return (
     <header
       className={`sticky-top navbar-custom ${scrolled ? "scrolled" : ""}`}
@@ -58,10 +65,10 @@ export default function Header({
           <div className="d-flex align-items-center gap-2">
             <a
               href="#"
-              className="user-btn d-none d-lg-flex align-items-center gap-2 text-decoration-none"
+              className="user-btn d-flex align-items-center gap-2 text-decoration-none"
             >
               <User size={20} />
-              <span>Entrar</span>
+              <span className="d-none d-lg-inline">Entrar</span>
             </a>
 
             <button className="user-btn position-relative d-flex align-items-center gap-2">
@@ -77,6 +84,27 @@ export default function Header({
             >
               <span className="navbar-toggler-icon"></span>
             </button>
+          </div>
+        </div>
+
+        {/* Categories Bar - Desktop Only */}
+        <div className="categories-bar d-none d-lg-block">
+          <div className="container-fluid px-3 px-lg-4">
+            <div className="categories-wrapper">
+              {categories.map((category, index) => {
+                const IconComponent = category.icon;
+                return (
+                  <a
+                    key={index}
+                    href={category.href}
+                    className="category-item"
+                  >
+                    <IconComponent size={18} />
+                    <span>{category.name}</span>
+                  </a>
+                );
+              })}
+            </div>
           </div>
         </div>
 

@@ -353,9 +353,9 @@
 }
 
 .btn-add-cart:hover {
-  background: #ffffff !important;
-  color: #000000 !important;
-  border-color: #ffd700;
+  background: #ffd700 !important;
+  color: #000 !important;
+  border-color: #1a1a1a;
   box-shadow: 0 6px 20px rgba(255, 215, 0, 0.3);
 }
 

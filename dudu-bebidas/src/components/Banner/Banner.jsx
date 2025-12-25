@@ -51,20 +51,6 @@ export default function Banner({ banners, currentBanner, setCurrentBanner }) {
         </div>
       ))}
 
-      <div
-        className="position-absolute bottom-0 start-50 translate-middle-x d-flex gap-2 mb-2"
-        style={{ zIndex: 10 }}
-      >
-        {banners.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentBanner(index)}
-            className={`banner-indicator ${
-              index === currentBanner ? "active" : ""
-            }`}
-          />
-        ))}
-      </div>
     </div>
   );
 }
