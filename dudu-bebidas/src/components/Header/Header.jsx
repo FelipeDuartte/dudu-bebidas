@@ -1,4 +1,5 @@
 import React from "react";
+import logo from "../../assets/logo_dudu-bebidas.jpeg";
 import { ShoppingCart, User, Search, Wine, Beer, Coffee, Droplets } from "lucide-react";
 import "./Header.css";
 
@@ -27,7 +28,7 @@ export default function Header({
             {/* Logo Image */}
             <div className="logo-image-wrapper">
               <img 
-                src="../../public/logo_dudu-bebidas.jpeg" 
+                src={logo} 
                 alt="Dudu Bebidas Logo" 
                 className="logo-image"
               />
