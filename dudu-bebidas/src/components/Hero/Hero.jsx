@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, ShoppingCart } from "lucide-react";
 import "./Hero.css";
-
+import bannerCerveja from "../../assets/ofertas-cervejas.png";
+import Bannerwisky from "../../assets/Wisky-hero.png";
+import Bannervinhos from "../../assets/vinhos-hero.png";
 export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -12,8 +14,8 @@ export default function Hero() {
       subtitle: "Cervejas Premium",
       description: "Até 40% OFF em cervejas importadas",
       badge: "OFERTA",
-      image: "https://images.unsplash.com/photo-1608270586620-248524c67de9?w=1600&h=800&fit=crop&q=80",
-      ctaText: "Ver Ofertas"
+      image: bannerCerveja,
+      ctaText: "Ver Ofertas",
     },
     {
       id: 2,
@@ -21,8 +23,8 @@ export default function Hero() {
       subtitle: "Vinhos Selecionados",
       description: "Acabou de chegar - Importados direto da Europa",
       badge: "NOVO",
-      image: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=1600&h=800&fit=crop&q=80",
-      ctaText: "Conferir Novidades"
+      image: Bannervinhos,
+      ctaText: "Conferir Novidades",
     },
     {
       id: 3,
@@ -30,8 +32,8 @@ export default function Hero() {
       subtitle: "Whisky & Destilados",
       description: "Descontos imperdíveis em destilados premium",
       badge: "HOT",
-      image: "https://images.unsplash.com/photo-1527281400125-ebffc48b9dd0?w=1600&h=800&fit=crop&q=80",
-      ctaText: "Aproveitar Agora"
+      image: Bannerwisky,
+      ctaText: "Aproveitar Agora",
     },
     {
       id: 4,
@@ -39,9 +41,10 @@ export default function Hero() {
       subtitle: "Gin Artesanal",
       description: "Sabores exclusivos direto do produtor",
       badge: "EXCLUSIVO",
-      image: "https://images.unsplash.com/photo-1551538827-9c037cb4f32a?w=1600&h=800&fit=crop&q=80",
-      ctaText: "Conhecer Produtos"
-    }
+      image:
+        "https://images.unsplash.com/photo-1551538827-9c037cb4f32a?w=1600&h=800&fit=crop&q=80",
+      ctaText: "Conhecer Produtos",
+    },
   ];
 
   const nextSlide = () => {
@@ -63,11 +66,13 @@ export default function Hero() {
         {banners.map((banner, index) => (
           <div
             key={banner.id}
-            className={`carousel-slide ${index === currentSlide ? "active" : ""}`}
+            className={`carousel-slide ${
+              index === currentSlide ? "active" : ""
+            }`}
             style={{ backgroundImage: `url(${banner.image})` }}
           >
             <div className="carousel-overlay"></div>
-            
+
             <div className="container">
               <div className="row justify-content-center">
                 <div className="col-lg-10 col-xl-8">
@@ -75,7 +80,9 @@ export default function Hero() {
                     <span className="banner-badge">{banner.badge}</span>
                     <h1 className="banner-title">
                       {banner.title}
-                      <span className="banner-highlight">{banner.subtitle}</span>
+                      <span className="banner-highlight">
+                        {banner.subtitle}
+                      </span>
                     </h1>
                     <p className="banner-description">{banner.description}</p>
                     <a href="#produtos" className="btn-banner">
