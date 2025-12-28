@@ -1,17 +1,13 @@
 import React, { useState } from "react";
 import { Plus, Check } from "lucide-react";
 
-export default function ProductCard({
-  produto,
-  index,
-  addToCart,
-}) {
+export default function ProductCard({ produto, index, addToCart }) {
   const [isAdded, setIsAdded] = useState(false);
 
   const handleAddToCart = () => {
     addToCart(produto);
     setIsAdded(true);
-    
+
     // Reset após 2 segundos
     setTimeout(() => {
       setIsAdded(false);
@@ -20,6 +16,7 @@ export default function ProductCard({
 
   return (
     <>
+      {/* Product Card Container */}
       <div className="col" style={{ animationDelay: `${index * 0.05}s` }}>
         <div className="produto-card">
           <div className="produto-img-container">
@@ -28,31 +25,31 @@ export default function ProductCard({
               alt={produto.nome}
               className="produto-img"
             />
-
+            {/* Promo badge */}
             {produto.promocao && (
               <span className="badge-promo">
                 <i className="bi bi-lightning-charge-fill me-1"></i>
                 OFERTA
               </span>
             )}
-
+            {/* Estoque count badge */}
             {produto.estoque < 15 && (
-              <span className={`badge-estoque ${produto.estoque < 15 ? "baixo" : ""}`}>
+              <span
+                className={`badge-estoque ${
+                  produto.estoque < 15 ? "baixo" : ""
+                }`}
+              >
                 <i className="bi bi-exclamation-circle-fill me-1"></i>
                 Últimas unidades
               </span>
             )}
           </div>
-
+          {/* info to products */}
           <div className="produto-info">
-            <span className="categoria-badge">
-              {produto.categoria}
-            </span>
+            <span className="categoria-badge">{produto.categoria}</span>
 
-            <h3 className="produto-nome">
-              {produto.nome}
-            </h3>
-
+            <h3 className="produto-nome">{produto.nome}</h3>
+            {/* Preço section */}
             <div className="mb-3">
               <div className="d-flex align-items-baseline gap-2 mb-1">
                 <span className="preco-atual">
@@ -70,10 +67,12 @@ export default function ProductCard({
                 </div>
               )}
             </div>
-
+            {/* Button to add cart */}
             <button
               onClick={handleAddToCart}
-              className={`btn-add-cart d-flex align-items-center gap-2 justify-content-center ${isAdded ? 'added' : ''}`}
+              className={`btn-add-cart d-flex align-items-center gap-2 justify-content-center ${
+                isAdded ? "added" : ""
+              }`}
               disabled={isAdded}
             >
               {isAdded ? (
@@ -92,7 +91,7 @@ export default function ProductCard({
         </div>
       </div>
 
-      {/* Toast Notification */}
+      {/* Toast Notification to add cart */}
       {isAdded && (
         <div className="cart-notification-toast show">
           <div className="notification-content">

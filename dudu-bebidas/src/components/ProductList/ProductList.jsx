@@ -1,5 +1,6 @@
-import React from "react";
+// import components
 import ProductCard from "../ProductCard/ProductCard";
+// import styles
 import "./Products.css";
 
 export default function ProductList({
@@ -7,10 +8,10 @@ export default function ProductList({
   categories,
   selectedCategory,
   setSelectedCategory,
-  toggleFavorite,
   addToCart,
   favorites,
 }) {
+  //==== Main return ====
   return (
     <section id="produtos" className="py-5">
       <div className="container">
@@ -19,6 +20,7 @@ export default function ProductList({
             <h2 className="section-title">Nossos Produtos</h2>
           </div>
           <div className="text-end">
+              {/* Products count badge */}
             <span className="badge bg-dark">
               {filteredProducts.length} produtos disponíveis
             </span>
@@ -51,7 +53,6 @@ export default function ProductList({
                 key={produto.id}
                 produto={produto}
                 index={index}
-                toggleFavorite={toggleFavorite}
                 addToCart={addToCart}
                 favorites={favorites}
               />

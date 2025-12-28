@@ -1,6 +1,9 @@
+//====imports by React====
 import React, { useState, useEffect } from "react";
+//====imports by CSS====
 import "./App.css";
 import { Truck, Award, Zap, TrendingUp } from "lucide-react";
+//====imports by Components====
 import Header from "./components/Header/Header";
 import Banner from "./components/Banner/Banner";
 import Hero from "./components/Hero/Hero";
@@ -8,7 +11,7 @@ import Benefits from "./components/Benefits/Benefits";
 import ProductList from "./components/ProductList/ProductList";
 import Footer from "./components/Footer/Footer";
 
-// Dados dos produtos
+// ====Dados dos produtos====
 const produtosData = [
   {
     id: 1,
@@ -113,7 +116,7 @@ const produtosData = [
     destaque: true,
   },
 ];
-
+// ====Data to banners====
 const banners = [
   {
     id: 1,
@@ -143,7 +146,7 @@ const banners = [
     textColor: "#fff",
   },
 ];
-
+// ====Data to benefits====
 const benefits = [
   { icon: Truck, title: "Entrega Rápida", text: "Em até 30 minutos" },
   { icon: Award, title: "Qualidade Garantida", text: "Produtos premium" },
@@ -156,11 +159,10 @@ export default function DuduBebidas() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("todos");
   const [cartCount, setCartCount] = useState(0);
-  const [favorites, setFavorites] = useState(new Set());
   const [currentBanner, setCurrentBanner] = useState(0);
   const [scrolled, setScrolled] = useState(false);
 
-  // Scroll effect
+  // ====Scroll effect====
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
@@ -169,7 +171,7 @@ export default function DuduBebidas() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Banner carousel
+  // ====Banner carousel hero====
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentBanner((prev) => (prev + 1) % banners.length);
@@ -177,7 +179,7 @@ export default function DuduBebidas() {
     return () => clearInterval(timer);
   }, []);
 
-  // Filtrar produtos
+  // ====Filtrar produtos====
   const filteredProducts = produtosData.filter((produto) => {
     const matchesSearch = produto.nome
       .toLowerCase()
@@ -186,23 +188,11 @@ export default function DuduBebidas() {
       selectedCategory === "todos" || produto.categoria === selectedCategory;
     return matchesSearch && matchesCategory;
   });
-
-  const toggleFavorite = (id) => {
-    setFavorites((prev) => {
-      const newFavorites = new Set(prev);
-      if (newFavorites.has(id)) {
-        newFavorites.delete(id);
-      } else {
-        newFavorites.add(id);
-      }
-      return newFavorites;
-    });
-  };
-
+  // ====send to cart====
   const addToCart = (produto) => {
     setCartCount((prev) => prev + 1);
   };
-
+  //====categories data====
   const categories = [
     { id: "todos", label: "Todos", icon: "bi-grid-fill" },
     { id: "cerveja", label: "Cervejas", icon: "bi-cup-straw" },
@@ -215,14 +205,16 @@ export default function DuduBebidas() {
       icon: "bi-lightning-charge-fill",
     },
   ];
+  //==== Main return ====
   return (
-    <div style={{ minHeight: "100vh", background: "#f8f9fa" }}>
+    <div style={{ minHeight: "100vh", background: "#201e0dff" }}>
+      {/*====Banner Component====*/}
       <Banner
         banners={banners}
         currentBanner={currentBanner}
         setCurrentBanner={setCurrentBanner}
       />
-
+      {/*====Header Component====*/}
       <Header
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
@@ -231,21 +223,19 @@ export default function DuduBebidas() {
         setMenuOpen={setMenuOpen}
         scrolled={scrolled}
       />
-
+      {/*====Hero Component====*/}
       <Hero />
-
+      {/*====Product List Component====*/}
       <ProductList
         filteredProducts={filteredProducts}
         categories={categories}
         selectedCategory={selectedCategory}
         setSelectedCategory={setSelectedCategory}
-        toggleFavorite={toggleFavorite}
         addToCart={addToCart}
-        favorites={favorites}
       />
-
-    <Benefits benefits={benefits} />
-
+      {/*====Benefits Component====*/}
+      <Benefits benefits={benefits} />
+      {/*====Footer Component====*/}
       <Footer />
     </div>
   );
