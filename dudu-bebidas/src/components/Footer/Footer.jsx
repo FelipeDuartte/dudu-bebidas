@@ -87,7 +87,7 @@ export default function Footer() {
           <div className="row">
             <div className="col text-center">
               <p>
-                &copy; 2025 Dudu Bebidas. Todos os direitos reservados. | Beba com
+                &copy; 2026 Dudu Bebidas. Todos os direitos reservados. | Beba com
                 Moderação.
               </p>
               <p className="text-warning mt-2">
