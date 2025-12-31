@@ -1,6 +1,6 @@
 import React from "react";
 import "./Footer.css";
-
+import logoDev from "../../assets/Logo-my-company-small.png";
 export default function Footer() {
   return (
     <footer id="contato" className="footer-custom text-white">
@@ -90,8 +90,8 @@ export default function Footer() {
                 &copy; 2026 Dudu Bebidas. Todos os direitos reservados. | Beba com
                 Moderação.
               </p>
-              <p className="text-warning mt-2">
-                Desenvolvido por <a href="https://seusite.com" target="_blank" className="text-decoration-none fst-italic fw-bold text-primary">Felipe Duarte ☕</a>
+              <p className="text-warning mt-2 fst-italic"> <span className="fw-bold">Desenvolvido por</span> 
+              <span><img src={logoDev} alt="" /></span> , Crie seu site e-commerce. <a href="" className="text-warning">clique aqui!</a>
               </p>
             </div>
           </div>

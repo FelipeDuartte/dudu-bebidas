@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, ShoppingCart } from "lucide-react";
 import "./Hero.css";
-import bannerCerveja from "../../assets/ofertas-cervejas.png";
-import Bannerwisky from "../../assets/Wisky-hero.png";
-import Bannervinhos from "../../assets/vinhos-hero.png";
+import bannerCerveja from "../../assets/CervejaBanner.png";
+import Bannerwisky from "../../assets/WiskyBanner.png";
+import Bannervinhos from "../../assets/vinhoBanner.png";
+import BannerGin from "../../assets/ginBanner.png";
 export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -41,8 +42,7 @@ export default function Hero() {
       subtitle: "Gin Artesanal",
       description: "Sabores exclusivos direto do produtor",
       badge: "EXCLUSIVO",
-      image:
-        "https://images.unsplash.com/photo-1551538827-9c037cb4f32a?w=1600&h=800&fit=crop&q=80",
+      image: BannerGin,
       ctaText: "Conhecer Produtos",
     },
   ];

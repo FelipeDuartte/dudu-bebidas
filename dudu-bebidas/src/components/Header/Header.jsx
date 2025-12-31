@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../assets/logo_dudu-bebidas.jpeg";
+import logo from "../../assets/logo_dudu-bebidas.png";
 import { ShoppingCart, User, Search, Wine, Beer, Coffee, Droplets } from "lucide-react";
 import "./Header.css";
 
