@@ -5,11 +5,8 @@ import bannerCerveja from "../../assets/CervejaBanner.png";
 import Bannerwisky from "../../assets/WiskyBanner.png";
 import Bannervinhos from "../../assets/vinhoBanner.png";
 import BannerGin from "../../assets/ginBanner.png";
-import BannerVinhosMobile from "../../assets/BannerVinhosMobile.png";
-
 export default function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   const banners = [
     {
@@ -19,7 +16,6 @@ export default function Hero() {
       description: "Até 40% OFF em cervejas importadas",
       badge: "OFERTA",
       image: bannerCerveja,
-      imageMobile: bannerCerveja, // Substitua por bannerCervejaMobile quando tiver
       ctaText: "Ver Ofertas",
     },
     {
@@ -29,7 +25,6 @@ export default function Hero() {
       description: "Acabou de chegar - Importados direto da Europa",
       badge: "NOVO",
       image: Bannervinhos,
-      imageMobile: BannerVinhosMobile,
       ctaText: "Conferir Novidades",
     },
     {
@@ -39,7 +34,6 @@ export default function Hero() {
       description: "Descontos imperdíveis em destilados premium",
       badge: "HOT",
       image: Bannerwisky,
-      imageMobile: Bannerwisky, // Substitua por BannerwiskyMobile quando tiver
       ctaText: "Aproveitar Agora",
     },
     {
@@ -49,7 +43,6 @@ export default function Hero() {
       description: "Sabores exclusivos direto do produtor",
       badge: "EXCLUSIVO",
       image: BannerGin,
-      imageMobile: BannerGin, // Substitua por BannerGinMobile quando tiver
       ctaText: "Conhecer Produtos",
     },
   ];
@@ -67,15 +60,6 @@ export default function Hero() {
     return () => clearInterval(interval);
   }, []);
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
   return (
     <section id="hero" className="hero-carousel">
       <div className="carousel-wrapper">
@@ -85,9 +69,7 @@ export default function Hero() {
             className={`carousel-slide ${
               index === currentSlide ? "active" : ""
             }`}
-            style={{ 
-              backgroundImage: `url(${isMobile ? banner.imageMobile : banner.image})` 
-            }}
+            style={{ backgroundImage: `url(${banner.image})` }}
           >
             <div className="carousel-overlay"></div>
 
