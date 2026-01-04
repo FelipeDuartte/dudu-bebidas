@@ -10,6 +10,8 @@ export default function Header({
   menuOpen,
   setMenuOpen,
   scrolled,
+  onCartClick,
+  onLoginClick,
 }) {
   const categories = [
     { name: "Vinhos", icon: Wine, href: "#vinhos" },
@@ -64,15 +66,18 @@ export default function Header({
           </div>
 
           <div className="d-flex align-items-center gap-2">
-            <a
-              href="#"
-              className="user-btn d-flex align-items-center gap-2 text-decoration-none"
+            <button
+              onClick={onLoginClick}
+              className="user-btn d-flex align-items-center gap-2"
             >
               <User size={20} />
               <span className="d-none d-lg-inline">Entrar</span>
-            </a>
+            </button>
 
-            <button className="user-btn position-relative d-flex align-items-center gap-2">
+            <button 
+              className="user-btn position-relative d-flex align-items-center gap-2" 
+              onClick={onCartClick}
+            >
               <ShoppingCart size={20} />
               {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
               <span className="d-none d-lg-inline">Carrinho</span>

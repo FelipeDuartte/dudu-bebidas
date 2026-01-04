@@ -10,6 +10,8 @@ import Hero from "./components/Hero/Hero";
 import Benefits from "./components/Benefits/Benefits";
 import ProductList from "./components/ProductList/ProductList";
 import Footer from "./components/Footer/Footer";
+import Cart from "./components/Cart/Cart";
+import Login from "./components/Login/Login";
 
 // ====Dados dos produtos====
 const produtosData = [
@@ -158,7 +160,9 @@ export default function DuduBebidas() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("todos");
-  const [cartCount, setCartCount] = useState(0);
+  const [cartItems, setCartItems] = useState([]);
+  const [cartOpen, setCartOpen] = useState(false);
+  const [loginOpen, setLoginOpen] = useState(false);
   const [currentBanner, setCurrentBanner] = useState(0);
   const [scrolled, setScrolled] = useState(false);
 
@@ -188,10 +192,45 @@ export default function DuduBebidas() {
       selectedCategory === "todos" || produto.categoria === selectedCategory;
     return matchesSearch && matchesCategory;
   });
-  // ====send to cart====
+
+  // ====Add to cart====
   const addToCart = (produto) => {
-    setCartCount((prev) => prev + 1);
+    setCartItems((prevItems) => {
+      const existingItem = prevItems.find((item) => item.id === produto.id);
+      if (existingItem) {
+        return prevItems.map((item) =>
+          item.id === produto.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
+      }
+      return [...prevItems, { ...produto, quantity: 1 }];
+    });
   };
+
+  // ====Update quantity====
+  const updateQuantity = (id, newQuantity) => {
+    if (newQuantity < 1) return;
+    setCartItems((prevItems) =>
+      prevItems.map((item) =>
+        item.id === id ? { ...item, quantity: newQuantity } : item
+      )
+    );
+  };
+
+  // ====Remove item====
+  const removeItem = (id) => {
+    setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
+  };
+
+  // ====Clear cart====
+  const clearCart = () => {
+    setCartItems([]);
+  };
+
+  // ====Cart count====
+  const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+
   //====categories data====
   const categories = [
     { id: "todos", label: "Todos", icon: "bi-grid-fill" },
@@ -205,6 +244,7 @@ export default function DuduBebidas() {
       icon: "bi-lightning-charge-fill",
     },
   ];
+
   //==== Main return ====
   return (
     <div style={{ minHeight: "100vh", background: "#201e0dff" }}>
@@ -222,6 +262,8 @@ export default function DuduBebidas() {
         menuOpen={menuOpen}
         setMenuOpen={setMenuOpen}
         scrolled={scrolled}
+        onCartClick={() => setCartOpen(true)}
+        onLoginClick={() => setLoginOpen(true)}
       />
       {/*====Hero Component====*/}
       <Hero />
@@ -237,6 +279,20 @@ export default function DuduBebidas() {
       <Benefits benefits={benefits} />
       {/*====Footer Component====*/}
       <Footer />
+      {/*====Cart Component====*/}
+      <Cart
+        isOpen={cartOpen}
+        onClose={() => setCartOpen(false)}
+        cartItems={cartItems}
+        updateQuantity={updateQuantity}
+        removeItem={removeItem}
+        clearCart={clearCart}
+      />
+      {/*====Login Component====*/}
+      <Login
+        isOpen={loginOpen}
+        onClose={() => setLoginOpen(false)}
+      />
     </div>
   );
 }
